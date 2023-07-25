@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/src/presentation/utils/app_colors.dart';
+import 'package:quran/src/utils/app_colors.dart';
 
 class AppTheme {
   static const TextTheme _textTheme = TextTheme(
