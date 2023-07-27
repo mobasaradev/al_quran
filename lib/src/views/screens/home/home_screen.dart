@@ -1,7 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/src/utils/app_colors.dart';
-import 'package:quran/src/utils/app_fonts.dart';
+import 'package:quran/src/views/screens/home/widgets/greating.dart';
 import 'package:quran/src/views/widgets/appbar.dart';
 import 'package:quran/src/views/widgets/card.dart';
 import 'package:quran/src/views/widgets/container.dart';
@@ -23,35 +22,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AutoSizeText(
-                      "السَّلاَمُ عَلَيْكُمْ",
-                      style: AppFonts.textTheme.titleSmall?.copyWith(
-                        color: AppColor.tertiaryText,
-                      ),
-                    ),
-                    AutoSizeText(
-                      "Assalamu’alaikum",
-                      style: AppFonts.textTheme.titleSmall?.copyWith(
-                        color: AppColor.secondaryText,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  "12:45:19",
-                  style: AppFonts.textTheme.labelLarge?.copyWith(
-                    color: AppColor.tertiaryText.withOpacity(.6),
-                  ),
-                ),
-              ],
-            ),
+            const GreetingWidgets(),
             const SizedBox(height: 50),
             const HeroArea(
               title: 'Ar-Rahman',
@@ -69,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 24,
                   crossAxisSpacing: 24,
-                  mainAxisExtent: size.height * .24,
+                  mainAxisExtent: size.height * .215,
                 ),
                 itemBuilder: (context, index) {
                   List<String> bgImgUrls = [
@@ -97,7 +68,8 @@ class HomeScreen extends StatelessWidget {
                     backgroundImage: bgImgUrl,
                     imageUrl: iconImgUrl,
                     title: title,
-                    textColor: AppColor.white,
+                    textColor: AppColor.secondaryText,
+                    
                   );
                 },
               ),

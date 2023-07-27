@@ -19,8 +19,8 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      height: size.height * .25,
-      width: size.width * .4,
+      // height: size.height * .2,
+      // width: size.width * .4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
@@ -32,17 +32,16 @@ class CustomCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
               imageUrl,
-              width: size.width * .25,
+              width: size.width * .2,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Text(
               title,
-              style: AppFonts.textTheme.labelMedium?.copyWith(
+              style: AppFonts.textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.w700,
                 color: textColor,
               ),
@@ -52,7 +51,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 Text(
                   'Go',
-                  style: AppFonts.textTheme.labelSmall?.copyWith(
+                  style: AppFonts.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w400,
                     color: textColor,
                   ),

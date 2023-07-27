@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/src/utils/app_fonts.dart';
 
@@ -18,8 +19,7 @@ class HeroArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
+    final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {},
       child: Container(
@@ -42,17 +42,17 @@ class HeroArea extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    AutoSizeText(
                       'Start Reading Quran',
-                      style: AppFonts.textTheme.labelSmall?.copyWith(
+                      style: AppFonts.textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.w400,
                         color: textColor,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     Text(
                       title,
-                      style: AppFonts.textTheme.labelMedium?.copyWith(
+                      style: AppFonts.textTheme.bodyLarge?.copyWith(
                         color: textColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -62,7 +62,7 @@ class HeroArea extends StatelessWidget {
                       children: [
                         Text(
                           'Go',
-                          style: AppFonts.textTheme.labelSmall?.copyWith(
+                          style: AppFonts.textTheme.bodySmall?.copyWith(
                             fontWeight: FontWeight.w400,
                             color: textColor,
                           ),
@@ -83,7 +83,7 @@ class HeroArea extends StatelessWidget {
               right: -30,
               child: Image.asset(
                 imageSource,
-                width: size.width * .4,
+                width: size.width * .41,
               ),
             ),
           ],

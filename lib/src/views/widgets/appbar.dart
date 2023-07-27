@@ -19,27 +19,32 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      centerTitle: true,
-      title: AutoSizeText(
-        title,
-        maxLines: 1,
-        style: AppFonts.textTheme.titleLarge?.copyWith(
-          color: AppColor.primaryText,
+    final size = MediaQuery.of(context).size;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: AppBar(
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        centerTitle: true,
+        title: AutoSizeText(
+          title,
+          maxLines: 1,
+          style: AppFonts.textTheme.titleLarge?.copyWith(
+            color: AppColor.primaryText,
+          ),
         ),
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        leading: automaticallyImplyLeading
+            ? InkWell(
+                onTap: onPressed,
+                child: Icon(
+                  icon,
+                  size: size.width * .07,
+                  color: AppColor.primaryText,
+                ),
+              )
+            : null,
       ),
-      automaticallyImplyLeading: automaticallyImplyLeading,
-      leading: automaticallyImplyLeading
-          ? InkWell(
-              onTap: onPressed,
-              child: Icon(
-                icon,
-                size: 18,
-                weight: 800,
-                color: AppColor.primaryText,
-              ),
-            )
-          : null,
     );
   }
 
