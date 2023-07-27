@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/src/views/screens/quran/quran.dart';
+import 'package:quran/modules/quran/view/quran_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const QuranScreen(),
+      home: const QuranPage(),
     );
   }
 }

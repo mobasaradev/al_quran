@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/app.dart';
-import 'package:quran/src/services/api_service.dart';
-import 'package:quran/src/viewmodels/home/location/bloc/current_location_bloc.dart';
-import 'package:quran/src/viewmodels/home/time_date/bloc/current_time_bloc.dart';
-import 'package:quran/src/viewmodels/quran/bloc/surah_bloc.dart';
+import 'package:quran/modules/home/bloc/location/current_location_bloc.dart';
+import 'package:quran/modules/home/bloc/time_date/current_time_bloc.dart';
+import 'package:quran/modules/quran/bloc/surah_bloc.dart';
+import 'package:quran/shared/services/api_service.dart';
 
 void main() {
   runApp(
@@ -17,7 +17,8 @@ void main() {
           create: (context) => CurrentLocationBloc(),
         ),
         BlocProvider<SurahBloc>(
-          create: (context) => SurahBloc(ApiService()),
+          create: (context) => SurahBloc(ApiService())..add(SurahListEvent())
+          ,
         ),
       ],
       child: const MyApp(),
