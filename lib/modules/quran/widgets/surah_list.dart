@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran/shared/models/surah.dart';
-import 'package:quran/utils/app_colors.dart';
-import 'package:quran/utils/app_fonts.dart';
+import 'package:quran/shared/shared.dart';
+import 'package:quran/theme/theme.dart';
+import 'package:quran/utils/utils.dart';
 
 class SurahList extends StatelessWidget {
   const SurahList({
@@ -19,12 +19,11 @@ class SurahList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: AppColor.tertiaryText.withOpacity(0.1),
+            color: AppColors.tertiaryText.withOpacity(0.1),
             width: 2.0,
           ),
         ),
@@ -33,39 +32,39 @@ class SurahList extends StatelessWidget {
         contentPadding: EdgeInsets.zero,
         leading: Container(
           alignment: Alignment.center,
-          width: size.width * .1,
-          height: size.height * .1,
+          width: context.mediaQueryData.size.width * .1,
+          height: context.mediaQueryData.size.height * .1,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/iconLeading.png'),
+              image: AssetImage(AssetPaths.iconLeading),
               fit: BoxFit.fitWidth,
             ),
           ),
           child: Text(
             surah.number.toString(),
-            style: AppFonts.textTheme.bodyMedium?.copyWith(
+            style: context.themeData.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
         title: Text(
           transliteration.en,
-          style: AppFonts.textTheme.bodyMedium?.copyWith(
+          style: context.themeData.textTheme.bodyMedium?.copyWith(
             fontWeight: FontWeight.w600,
-            color: AppColor.secondaryText,
+            color: AppColors.secondaryText,
           ),
         ),
         subtitle: Text(
           "Verse - ${surah.number}, ${revelation.arab}",
-          style: AppFonts.textTheme.bodySmall?.copyWith(
-            color: AppColor.primaryText,
+          style: context.themeData.textTheme.bodySmall?.copyWith(
+            color: AppColors.primaryText,
           ),
         ),
         trailing: Text(
           name.short,
-          style: AppFonts.textTheme.headlineSmall?.copyWith(
+          style: context.themeData.textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.w500,
-            color: AppColor.tertiaryText,
+            color: AppColors.tertiaryText,
           ),
         ),
         onTap: () {},

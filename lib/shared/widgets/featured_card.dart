@@ -1,10 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:quran/utils/app_fonts.dart';
+import 'package:quran/utils/utils.dart';
 
-
-class HeroArea extends StatelessWidget {
-  const HeroArea({
+class FeaturedCard extends StatelessWidget {
+  const FeaturedCard({
     super.key,
     required this.title,
     required this.imageSource,
@@ -20,12 +19,11 @@ class HeroArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return InkWell(
       onTap: () {},
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        width: size.width * 1,
+        width: context.mediaQueryData.size.width * 1,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           image: DecorationImage(
@@ -45,15 +43,14 @@ class HeroArea extends StatelessWidget {
                   children: [
                     AutoSizeText(
                       'Start Reading Quran',
-                      style: AppFonts.textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.w400,
+                      style: context.themeData.textTheme.bodySmall?.copyWith(
                         color: textColor,
                       ),
                     ),
                     const SizedBox(height: 20),
                     Text(
                       title,
-                      style: AppFonts.textTheme.bodyLarge?.copyWith(
+                      style: context.themeData.textTheme.bodyLarge?.copyWith(
                         color: textColor,
                         fontWeight: FontWeight.w600,
                       ),
@@ -63,7 +60,8 @@ class HeroArea extends StatelessWidget {
                       children: [
                         Text(
                           'Go',
-                          style: AppFonts.textTheme.bodySmall?.copyWith(
+                          style:
+                              context.themeData.textTheme.bodySmall?.copyWith(
                             fontWeight: FontWeight.w400,
                             color: textColor,
                           ),
@@ -84,7 +82,7 @@ class HeroArea extends StatelessWidget {
               right: -30,
               child: Image.asset(
                 imageSource,
-                width: size.width * .41,
+                width: context.mediaQueryData.size.width * .41,
               ),
             ),
           ],

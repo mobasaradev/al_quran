@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:quran/modules/home/widgets/greating.dart';
-import 'package:quran/shared/widgets/appbar.dart';
-import 'package:quran/shared/widgets/card.dart';
-import 'package:quran/shared/widgets/container.dart';
-import 'package:quran/shared/widgets/hero.dart';
-import 'package:quran/utils/app_colors.dart';
+import 'package:quran/modules/modules.dart';
+import 'package:quran/shared/shared.dart';
+import 'package:quran/theme/theme.dart';
+import 'package:quran/utils/asset_paths.dart';
+import 'package:quran/utils/utils.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'Al-Quran Al-Kareem',
         automaticallyImplyLeading: false,
-      ),
+      ).toPreferredSize(),
       body: CustomContainer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -24,55 +22,54 @@ class HomePage extends StatelessWidget {
           children: [
             const GreetingWidgets(),
             const SizedBox(height: 50),
-            const HeroArea(
+            const FeaturedCard(
               title: 'Ar-Rahman',
-              imageSource: 'assets/images/quran.png',
-              color: AppColor.primaryHeroArea,
-              textColor: AppColor.primaryHeroAreaText,
-              backgroundImage: 'assets/images/heroBgS.png',
+              imageSource: AssetPaths.quran,
+              color: AppColors.primaryHeroArea,
+              textColor: AppColors.primaryHeroAreaText,
+              backgroundImage: AssetPaths.featuredBg1,
             ),
             const SizedBox(height: 30),
-            Expanded(
-              child: GridView.builder(
-                clipBehavior: Clip.none,
-                itemCount: 4,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 24,
-                  crossAxisSpacing: 24,
-                  mainAxisExtent: size.height * .215,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomCard(
+                  backgroundImage: AssetPaths.cardBg1,
+                  imageUrl: AssetPaths.iconQuran,
+                  title: 'Quran',
+                  textColor: AppColors.secondaryText,
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QuranPage(),
+                    ),
+                  ),
                 ),
-                itemBuilder: (context, index) {
-                  List<String> bgImgUrls = [
-                    "assets/images/cardBg.png",
-                    "assets/images/cardBgP.png",
-                    "assets/images/cardBgPk.png",
-                    "assets/images/cardBgR.png",
-                  ];
-                  List<String> iconImgUrls = [
-                    "assets/images/iconQuran.png",
-                    "assets/images/iconHand.png",
-                    "assets/images/iconkebla.png",
-                    "assets/images/iconCalender.png",
-                  ];
-                  List<String> titleLst = [
-                    "Quran",
-                    "Dua and Zikir",
-                    "Qibla",
-                    "Calender",
-                  ];
-                  String bgImgUrl = bgImgUrls[index % bgImgUrls.length];
-                  String iconImgUrl = iconImgUrls[index % iconImgUrls.length];
-                  String title = titleLst[index % titleLst.length];
-                  return CustomCard(
-                    backgroundImage: bgImgUrl,
-                    imageUrl: iconImgUrl,
-                    title: title,
-                    textColor: AppColor.secondaryText,
-                    
-                  );
-                },
-              ),
+                const CustomCard(
+                  backgroundImage: AssetPaths.cardBg2,
+                  imageUrl: AssetPaths.iconHand,
+                  title: 'Dua and Zikir',
+                  textColor: AppColors.secondaryText,
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomCard(
+                  backgroundImage: AssetPaths.cardBg3,
+                  imageUrl: AssetPaths.iconKebla,
+                  title: 'Qibla',
+                  textColor: AppColors.secondaryText,
+                ),
+                CustomCard(
+                  backgroundImage: AssetPaths.cardBg4,
+                  imageUrl: AssetPaths.iconCalender,
+                  title: 'Calender',
+                  textColor: AppColors.secondaryText,
+                ),
+              ],
             ),
           ],
         ),

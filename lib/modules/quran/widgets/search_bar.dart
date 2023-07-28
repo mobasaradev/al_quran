@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran/utils/app_colors.dart';
-import 'package:quran/utils/app_fonts.dart';
+import 'package:quran/theme/theme.dart';
+import 'package:quran/utils/utils.dart';
+
 
 class CustomSearchBar extends StatelessWidget {
   final String placeholder;
@@ -32,8 +33,8 @@ class CustomSearchBar extends StatelessWidget {
         onChanged: onChanged,
         decoration: InputDecoration(
           hintText: placeholder,
-          hintStyle: AppFonts.textTheme.bodySmall?.copyWith(
-            color: AppColor.grey,
+          hintStyle: context.themeData.textTheme.bodySmall?.copyWith(
+            color: AppColors.grey,
           ),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -41,7 +42,7 @@ class CustomSearchBar extends StatelessWidget {
           suffixIcon: Icon(
             Icons.search,
             size: size.width * .05,
-            color: AppColor.grey,
+            color: AppColors.grey,
           ),
         ),
       ),

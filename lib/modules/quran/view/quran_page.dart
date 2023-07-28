@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/modules/quran/bloc/surah_bloc.dart';
-import 'package:quran/modules/quran/widgets/search_bar.dart';
-import 'package:quran/modules/quran/widgets/surah_list.dart';
-import 'package:quran/shared/widgets/appbar.dart';
-import 'package:quran/shared/widgets/container.dart';
-
+import 'package:quran/modules/modules.dart';
+import 'package:quran/shared/shared.dart';
+import 'package:quran/utils/utils.dart';
 
 class QuranPage extends StatelessWidget {
   const QuranPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final apiService = ApiService().fetchSurahList();
     return Scaffold(
       appBar: CustomAppBar(
         title: "Quran",
         automaticallyImplyLeading: true,
         icon: Icons.home_outlined,
         onPressed: () => Navigator.pop(context),
-      ),
+      ).toPreferredSize(),
       body: CustomContainer(
         child: Column(
           children: [
@@ -28,10 +24,15 @@ class QuranPage extends StatelessWidget {
             Expanded(
               child: BlocBuilder<SurahBloc, SurahState>(
                 builder: (context, state) {
+                  if (state.status == SurahStatus.loading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
                   return ListView.builder(
-                    itemCount: state.surah.length,
+                    itemCount: state.surahs.length,
                     itemBuilder: (context, index) {
-                      final surah = state.surah[index];
+                      final surah = state.surahs[index];
                       return SurahList(
                         transliteration: surah.name.transliteration,
                         name: surah.name,
@@ -49,30 +50,3 @@ class QuranPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-            // Expanded(
-            //   child: FutureBuilder<List<Surah>>(
-            //     future: apiService,
-            //     builder: (context, snapshot) {
-            //       if (!snapshot.hasData) {
-            //         return const Center(
-            //           child: CircularProgressIndicator(),
-            //         );
-            //       }
-            //       return ListView.builder(
-            //         padding: EdgeInsets.zero,
-            //         itemCount: snapshot.data?.length,
-            //         itemBuilder: (context, index) {
-            //           final surah = snapshot.data![index];
-            //           return SurahList(
-            //               transliteration: surah.name.transliteration,
-            //               name: surah.name,
-            //               revelation: surah.revelation,
-            //               surah: surah,);
-            //         },
-            //       );
-            //     },
-            //   ),

@@ -7,4 +7,4 @@ abstract class SurahEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SurahListEvent extends SurahEvent {}
+class SurahEventFetched extends SurahEvent {}

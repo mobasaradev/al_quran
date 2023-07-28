@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AppColor {
-  AppColor._();
+class AppColors {
+  AppColors._();
   // Primary Colors
-  static const white = Color(0xffffffff);
-  static const black = Color(0xFF000000);
-  static const grey = Color(0xFF9E9E9E);
+  static const white = Colors.white;
+  static const black = Colors.black;
+  static const grey = Colors.grey;
   static const button = Color(0xFF71DFE0);
 
   // Text colors
@@ -22,5 +22,5 @@ class AppColor {
   static const secondaryHeroArea = Color(0xFFBBF7F7);
 
   // transparent
-  static const transparent = Color(0x00000000);
+  static const transparent = Colors.transparent;
 }

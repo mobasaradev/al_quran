@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/modules/home/bloc/time_date/current_time_bloc.dart';
-import 'package:quran/utils/app_colors.dart';
-import 'package:quran/utils/app_fonts.dart';
+import 'package:quran/modules/home/home.dart';
+import 'package:quran/theme/theme.dart';
+import 'package:quran/utils/utils.dart';
+
 
 
 class GreetingWidgets extends StatelessWidget {
@@ -20,14 +21,14 @@ class GreetingWidgets extends StatelessWidget {
           children: [
             AutoSizeText(
               "السَّلاَمُ عَلَيْكُمْ",
-              style: AppFonts.textTheme.titleLarge?.copyWith(
-                color: AppColor.tertiaryText,
+              style: context.themeData.textTheme.titleLarge?.copyWith(
+                color: AppColors.tertiaryText,
               ),
             ),
             AutoSizeText(
               "Assalamu’alaikum",
-              style: AppFonts.textTheme.titleSmall?.copyWith(
-                color: AppColor.black.withOpacity(.6),
+              style: context.themeData.textTheme.titleSmall?.copyWith(
+                color: AppColors.black.withOpacity(.6),
               ),
             ),
           ],
@@ -39,14 +40,14 @@ class GreetingWidgets extends StatelessWidget {
               children: [
                 AutoSizeText(
                   state.currentTime,
-                  style: AppFonts.textTheme.titleMedium?.copyWith(
-                    color: AppColor.tertiaryText.withOpacity(.7),
+                  style: context.themeData.textTheme.titleMedium?.copyWith(
+                    color: AppColors.tertiaryText.withOpacity(.7),
                   ),
                 ),
                 AutoSizeText(
                   state.currentDate,
-                  style: AppFonts.textTheme.bodyMedium?.copyWith(
-                    color: AppColor.tertiaryText.withOpacity(.7),
+                  style: context.themeData.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.tertiaryText.withOpacity(.7),
                   ),
                 ),
               ],

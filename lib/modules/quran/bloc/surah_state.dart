@@ -1,36 +1,31 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'surah_bloc.dart';
 
-enum SurahStatus { initial, loading, loaded, error }
+enum SurahStatus { initial, loading, success, failure }
 
-final class SurahState extends Equatable {
+class SurahState extends Equatable {
   const SurahState({
-    required this.status,
-    required this.error,
-    required this.surah,
+    this.status = SurahStatus.initial,
+    this.statusMsg = '',
+    this.surahs = const [],
   });
 
-  factory SurahState.initial() => const SurahState(
-        status: SurahStatus.initial,
-        error: '',
-        surah: [],
-      );
-
   final SurahStatus status;
-  final String error;
-  final List<Surah> surah;
+  final String statusMsg;
+  final List<Surah> surahs;
 
   @override
-  List<Object> get props => [status, error, surah];
+  List<Object> get props => [status, statusMsg, surahs];
 
   SurahState copyWith({
     SurahStatus? status,
-    String? error,
-    List<Surah>? surah,
+    String? statusMsg,
+    List<Surah>? surahs,
   }) {
     return SurahState(
       status: status ?? this.status,
-      error: error ?? this.error,
-      surah: surah ?? this.surah,
+      statusMsg: statusMsg ?? this.statusMsg,
+      surahs: surahs ?? this.surahs,
     );
   }
 }

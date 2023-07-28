@@ -1,20 +1,24 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:quran/shared/models/surah.dart';
+import 'dart:io';
+import 'package:http/http.dart';
 
 class ApiService {
-  Future<List<Surah>> fetchSurahList() async {
+  Future<StreamedResponse?> fetchSurahs() async {
     final url = Uri.parse('https://api.quran.gading.dev/surah');
-    final response = await http.get(url);
-
-    if (response.statusCode == 200) {
-      final decodedData = jsonDecode(response.body)["data"];
-      final jsonResponse = [
-        for (final data in decodedData) Surah.fromJson(data)
-      ];
-      return jsonResponse;
-    } else {
-      throw Exception("error to load");
+    final request = StreamedRequest('GET', url);
+    try {
+      final response = await request.send();
+      print(response.reasonPhrase);
+      if (response.statusCode == HttpStatus.ok) {
+        return response;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      throw Exception(
+        "Couldn't fetch surahs, $e",
+      );
     }
   }
 }
+
+

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:quran/modules/quran/view/quran_page.dart';
+import 'package:quran/modules/modules.dart';
+import 'package:quran/theme/app_theme.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Al-Quran Al-Kareem',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const QuranPage(),
+      theme: AppTheme.themeData(),
+      home: const HomePage(),
     );
   }
 }
+

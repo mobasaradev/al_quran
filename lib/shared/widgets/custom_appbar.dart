@@ -1,9 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:quran/utils/app_colors.dart';
-import 'package:quran/utils/app_fonts.dart';
+import 'package:quran/theme/theme.dart';
+import 'package:quran/utils/utils.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+
+class CustomAppBar extends StatelessWidget {
   final String title;
   final bool automaticallyImplyLeading;
   final VoidCallback? onPressed;
@@ -19,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: AppBar(
@@ -29,8 +30,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: AutoSizeText(
           title,
           maxLines: 1,
-          style: AppFonts.textTheme.titleLarge?.copyWith(
-            color: AppColor.primaryText,
+          style: context.themeData.textTheme.titleLarge?.copyWith(
+            color: AppColors.primaryText,
           ),
         ),
         automaticallyImplyLeading: automaticallyImplyLeading,
@@ -39,15 +40,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 onTap: onPressed,
                 child: Icon(
                   icon,
-                  size: size.width * .07,
-                  color: AppColor.primaryText,
+                  size: context.mediaQueryData.size.width * .07,
+                  color: AppColors.primaryText,
                 ),
               )
             : null,
       ),
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
