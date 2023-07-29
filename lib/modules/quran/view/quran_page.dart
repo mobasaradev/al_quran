@@ -24,7 +24,7 @@ class QuranPage extends StatelessWidget {
             const CustomSearchBar(placeholder: 'Search'),
             const SizedBox(height: 10),
             Expanded(
-              child: BlocBuilder<SurahBloc, SurahState>(
+              child: BlocBuilder<SurahListBloc, SurahListState>(
                 builder: (context, state) {
                   if (state.status == SurahStatus.loading) {
                     return const Center(
@@ -32,14 +32,14 @@ class QuranPage extends StatelessWidget {
                     );
                   }
                   return ListView.builder(
-                    itemCount: state.surahs.length,
+                    itemCount: state.surahList.length,
                     itemBuilder: (context, index) {
-                      final surah = state.surahs[index];
-                      return SurahList(
-                        transliteration: surah.name.transliteration,
-                        name: surah.name,
-                        revelation: surah.revelation,
+                      final surah = state.surahList[index];
+                      return CustomListOfSurah(
                         surah: surah,
+                        transliteration: surah.name.transliteration,
+                        revelation: surah.revelation,
+                        name: surah.name,
                       );
                     },
                   );

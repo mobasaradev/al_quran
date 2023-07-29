@@ -78,11 +78,12 @@ class FeaturedCard extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: -60,
-              right: -30,
+              // top: -60,
+              right: -15,
+              bottom: -10,
               child: Image.asset(
                 imageSource,
-                width: context.mediaQueryData.size.width * .41,
+                width: context.mediaQueryData.size.width * .38,
               ),
             ),
           ],

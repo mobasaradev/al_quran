@@ -1,8 +1,9 @@
 import 'dart:io';
+
 import 'package:http/http.dart';
 
 class ApiService {
-  Future<StreamedResponse?> fetchSurahs() async {
+  Future<StreamedResponse?> fetchSurahList() async {
     final url = Uri.parse('https://api.quran.gading.dev/surah');
     final request = Request('GET', url);
     try {
@@ -19,5 +20,3 @@ class ApiService {
     }
   }
 }
-
-

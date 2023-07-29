@@ -8,4 +8,6 @@ export 'quran/quran.dart';
 export 'quran/view/quran_page.dart';
 export 'quran/widgets/search_bar.dart';
 export 'quran/widgets/surah_list.dart';
+export 'surah/surah.dart';
 export 'surah/view/surah_page.dart';
+export 'surah/widgets/header_card.dart';

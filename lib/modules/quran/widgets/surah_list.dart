@@ -1,22 +1,23 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
-class SurahList extends StatelessWidget {
-  const SurahList({
+class CustomListOfSurah extends StatelessWidget {
+  const CustomListOfSurah({
     super.key,
-    required this.transliteration,
-    required this.name,
-    required this.revelation,
     required this.surah,
+    required this.transliteration,
+    required this.revelation,
+    required this.name,
   });
 
-  final Surah surah;
-  final Name name;
-  final Revelation revelation;
+  final SurahList surah;
   final Transliteration transliteration;
+  final Revelation revelation;
+  final Name name;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,12 @@ class SurahList extends StatelessWidget {
             color: AppColors.tertiaryText,
           ),
         ),
-        onTap: () {},
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SurahPage(),
+          ),
+        ),
       ),
     );
   }

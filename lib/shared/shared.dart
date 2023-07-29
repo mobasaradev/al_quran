@@ -1,4 +1,4 @@
-export 'models/surah.dart';
+export 'models/surah_list.dart';
 export 'repositories/surah_repo.dart';
 export 'services/api_service.dart';
 export 'widgets/custom_appbar.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran/modules/modules.dart';
+import 'package:quran/modules/home/home.dart';
 import 'package:quran/theme/app_theme.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Al-Quran Al-Kareem',
       theme: AppTheme.themeData(),
-      home: const SurahPage(),
+      home: const HomePage(),
     );
   }
 }

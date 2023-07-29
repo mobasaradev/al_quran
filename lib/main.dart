@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/app.dart';
-import 'package:quran/modules/modules.dart';
+import 'package:quran/modules/quran/bloc/surah_bloc.dart';
 import 'package:quran/shared/shared.dart';
 
 void main() {
   runApp(
     MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<SurahRepo>(
-          create: (context) => SurahRepo(),
+        RepositoryProvider<SurahListRepo>(
+          create: (context) => SurahListRepo(),
         ),
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<SurahBloc>(
-            create: (context) => SurahBloc(
-              surahRepo: context.read<SurahRepo>(),
+          BlocProvider<SurahListBloc>(
+            create: (context) => SurahListBloc(
+              surahListRepo: context.read<SurahListRepo>(),
             )..add(
-                SurahEventFetched(),
+                SurahListEventFetched(),
               ),
           ),
         ],

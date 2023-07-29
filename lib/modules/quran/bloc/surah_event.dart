@@ -1,10 +1,10 @@
 part of 'surah_bloc.dart';
 
-abstract class SurahEvent extends Equatable {
-  const SurahEvent();
+abstract class SurahListEvent extends Equatable {
+  const SurahListEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class SurahEventFetched extends SurahEvent {}
+class SurahListEventFetched extends SurahListEvent {}

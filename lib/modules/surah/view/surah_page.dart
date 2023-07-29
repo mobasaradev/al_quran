@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran/modules/surah/surah.dart';
+import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
-import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
 class SurahPage extends StatelessWidget {
@@ -20,12 +19,14 @@ class SurahPage extends StatelessWidget {
         child: Column(
           children: [
             HeaderCard(
-              title: 'title',
+              titleAr: "title Ar",
               imageSource: AssetPaths.quran,
-              color: AppColors.secondaryHeroArea,
-              textColor: AppColors.secondaryHeroAreaText,
               backgroundImage: AssetPaths.featuredBg1,
-            )
+              number: 114,
+              titleEn: 'title En',
+              revelation: 'revelation',
+              numberOfVerse: '7',
+            ),
           ],
         ),
       ),
