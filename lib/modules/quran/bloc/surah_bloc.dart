@@ -5,7 +5,9 @@ part 'surah_event.dart';
 part 'surah_state.dart';
 
 class SurahBloc extends Bloc<SurahEvent, SurahState> {
-  SurahBloc({required SurahRepo surahRepo}) : _surahRepo = surahRepo,super(const SurahState()) {
+  SurahBloc({required SurahRepo surahRepo})
+      : _surahRepo = surahRepo,
+        super(const SurahState()) {
     on<SurahEventFetched>(_onFetched);
   }
   final SurahRepo _surahRepo;
@@ -15,6 +17,7 @@ class SurahBloc extends Bloc<SurahEvent, SurahState> {
     Emitter<SurahState> emit,
   ) async {
     emit(state.copyWith(status: SurahStatus.loading));
+    
     final surahs = await _surahRepo.getSurahs();
     if (surahs.isEmpty) {
       emit(

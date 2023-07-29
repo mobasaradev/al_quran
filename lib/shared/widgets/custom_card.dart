@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/utils/utils.dart';
 
@@ -41,7 +42,7 @@ class CustomCard extends StatelessWidget {
                 width: context.mediaQueryData.size.width * .2,
               ),
               const SizedBox(height: 20),
-              Text(
+              AutoSizeText(
                 title,
                 style: context.themeData.textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.w700,
@@ -51,7 +52,7 @@ class CustomCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
+                  AutoSizeText(
                     'Go',
                     style: context.themeData.textTheme.bodySmall?.copyWith(
                       fontWeight: FontWeight.w400,

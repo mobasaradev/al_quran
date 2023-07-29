@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
@@ -40,27 +41,27 @@ class SurahList extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-          child: Text(
+          child: AutoSizeText(
             surah.number.toString(),
             style: context.themeData.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
-        title: Text(
+        title: AutoSizeText(
           transliteration.en,
           style: context.themeData.textTheme.bodyMedium?.copyWith(
             fontWeight: FontWeight.w600,
             color: AppColors.secondaryText,
           ),
         ),
-        subtitle: Text(
+        subtitle: AutoSizeText(
           "Verse - ${surah.number}, ${revelation.arab}",
           style: context.themeData.textTheme.bodySmall?.copyWith(
             color: AppColors.primaryText,
           ),
         ),
-        trailing: Text(
+        trailing: AutoSizeText(
           name.short,
           style: context.themeData.textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.w500,

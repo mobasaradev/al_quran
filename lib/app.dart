@@ -11,8 +11,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Al-Quran Al-Kareem',
       theme: AppTheme.themeData(),
-      home: const HomePage(),
+      home: const SurahPage(),
     );
   }
 }
-

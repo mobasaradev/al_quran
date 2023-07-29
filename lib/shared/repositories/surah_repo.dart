@@ -15,10 +15,8 @@ class SurahRepo {
 
   Future<List<Surah>> getSurahs() async {
     final response = await _apiService.fetchSurahs();
-    print(response);
     if (response != null) {
       final responseBody = await response.stream.bytesToString();
-      print(responseBody);
       return _parseSurahs(responseBody);
     } else {
       return [];

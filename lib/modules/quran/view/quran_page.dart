@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
+import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
 class QuranPage extends StatelessWidget {
@@ -10,6 +11,7 @@ class QuranPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: CustomAppBar(
         title: "Quran",
         automaticallyImplyLeading: true,

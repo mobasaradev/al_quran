@@ -14,12 +14,6 @@ void main() {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<CurrentTimeBloc>(
-            create: (context) => CurrentTimeBloc(),
-          ),
-          BlocProvider<CurrentLocationBloc>(
-            create: (context) => CurrentLocationBloc(),
-          ),
           BlocProvider<SurahBloc>(
             create: (context) => SurahBloc(
               surahRepo: context.read<SurahRepo>(),

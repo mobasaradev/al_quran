@@ -1,2 +1,11 @@
+export 'home/bloc/location/current_location_bloc.dart';
 export 'home/home.dart';
+export 'home/view/home_page.dart';
+export 'home/widgets/clock_widget.dart';
+export 'home/widgets/greating_text.dart';
+export 'quran/bloc/surah_bloc.dart';
 export 'quran/quran.dart';
+export 'quran/view/quran_page.dart';
+export 'quran/widgets/search_bar.dart';
+export 'quran/widgets/surah_list.dart';
+export 'surah/view/surah_page.dart';

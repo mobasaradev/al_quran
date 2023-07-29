@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
-import 'package:quran/utils/asset_paths.dart';
 import 'package:quran/utils/utils.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: const CustomAppBar(
         title: 'Al-Quran Al-Kareem',
         automaticallyImplyLeading: false,
@@ -20,14 +20,21 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const GreetingWidgets(),
+            const Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GreetingText(),
+                ClockWidget(),
+              ],
+            ),
             const SizedBox(height: 50),
             const FeaturedCard(
               title: 'Ar-Rahman',
-              imageSource: AssetPaths.quran,
+              imageSource: AssetPaths.mosque,
               color: AppColors.primaryHeroArea,
               textColor: AppColors.primaryHeroAreaText,
-              backgroundImage: AssetPaths.featuredBg1,
+              backgroundImage: AssetPaths.featuredBg2,
             ),
             const SizedBox(height: 30),
             Row(
@@ -38,12 +45,14 @@ class HomePage extends StatelessWidget {
                   imageUrl: AssetPaths.iconQuran,
                   title: 'Quran',
                   textColor: AppColors.secondaryText,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const QuranPage(),
-                    ),
-                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const QuranPage(),
+                      ),
+                    );
+                  },
                 ),
                 const CustomCard(
                   backgroundImage: AssetPaths.cardBg2,

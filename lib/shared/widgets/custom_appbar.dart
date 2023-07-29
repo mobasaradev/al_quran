@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
-
 class CustomAppBar extends StatelessWidget {
   final String title;
   final bool automaticallyImplyLeading;
@@ -20,7 +19,6 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: AppBar(
@@ -40,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
                 onTap: onPressed,
                 child: Icon(
                   icon,
-                  size: context.mediaQueryData.size.width * .07,
+                  size: context.mediaQueryData.size.width * .05,
                   color: AppColors.primaryText,
                 ),
               )
