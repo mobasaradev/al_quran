@@ -1,30 +1,20 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
 class HeaderCard extends StatelessWidget {
   const HeaderCard({
     super.key,
-    required this.titleAr,
     required this.imageSource,
     required this.backgroundImage,
-    required this.number,
-    required this.titleEn,
-    required this.revelation,
-    required this.numberOfVerse,
-    // required this.surah,
+    this.surahList,
   });
-  final int number;
-  final String titleAr;
-  final String titleEn;
-  final String revelation;
-  final String numberOfVerse;
+
   final String imageSource;
   final String backgroundImage;
-
-  // from Model
-  // final Surah surah;
+  final SurahList? surahList;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +44,7 @@ class HeaderCard extends StatelessWidget {
               ),
             ),
             child: AutoSizeText(
-              number.toString(),
+              surahList!.number.toString(),
               style: context.themeData.textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.w600,
               ),
@@ -62,20 +52,20 @@ class HeaderCard extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           AutoSizeText(
-            titleAr,
+            surahList!.name.short,
             style: context.themeData.textTheme.titleSmall?.copyWith(
               color: AppColors.primaryHeroAreaText,
             ),
           ),
           AutoSizeText(
-            titleEn,
+            surahList!.name.transliteration.en,
             style: context.themeData.textTheme.bodyMedium?.copyWith(
               color: AppColors.primaryHeroAreaText,
             ),
           ),
           const SizedBox(height: 7),
           AutoSizeText(
-            '$revelation - $numberOfVerse Verse',
+            '${surahList!.revelation} - ${surahList!.numberOfVerses} Verse',
             style: context.themeData.textTheme.bodySmall?.copyWith(
               fontWeight: FontWeight.w400,
               color: AppColors.secondaryHeroAreaText,

@@ -1,3 +1,4 @@
+export 'models/surah_details.dart';
 export 'models/surah_list.dart';
 export 'repositories/surah_repo.dart';
 export 'services/api_service.dart';
