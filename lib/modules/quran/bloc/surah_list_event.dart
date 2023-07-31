@@ -1,4 +1,4 @@
-part of 'surah_bloc.dart';
+part of 'surah_list_bloc.dart';
 
 abstract class SurahListEvent extends Equatable {
   const SurahListEvent();

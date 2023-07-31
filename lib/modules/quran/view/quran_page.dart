@@ -26,7 +26,7 @@ class QuranPage extends StatelessWidget {
             Expanded(
               child: BlocBuilder<SurahListBloc, SurahListState>(
                 builder: (context, state) {
-                  if (state.status == SurahStatus.loading) {
+                  if (state.status == SurahListStatus.loading) {
                     return const Center(
                       child: CircularProgressIndicator(),
                     );
@@ -36,10 +36,7 @@ class QuranPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final surah = state.surahList[index];
                       return CustomListOfSurah(
-                        surah: surah,
-                        transliteration: surah.name.transliteration,
-                        revelation: surah.revelation,
-                        name: surah.name,
+                        surahList: surah,
                       );
                     },
                   );

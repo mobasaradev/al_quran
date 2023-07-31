@@ -1,7 +1,11 @@
-export 'models/surah_details.dart';
-export 'models/surah_list.dart';
-export 'repositories/surah_repo.dart';
-export 'services/api_service.dart';
+export 'data/core/url_constants.dart';
+export 'data/data.dart';
+export 'data/network/network_util.dart';
+export 'data/repository/surah_repo.dart';
+export 'domain/domain.dart';
+export 'domain/models/surah_details.dart';
+export 'domain/models/surah_list.dart';
+export 'domain/repository/repository.dart';
 export 'widgets/custom_appbar.dart';
 export 'widgets/custom_card.dart';
 export 'widgets/custom_container.dart';

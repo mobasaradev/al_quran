@@ -1,15 +1,15 @@
-part of 'surah_bloc.dart';
+part of 'surah_list_bloc.dart';
 
-enum SurahStatus { initial, loading, success, failure }
+enum SurahListStatus { initial, loading, success, failure }
 
 final class SurahListState extends Equatable {
   const SurahListState({
-    this.status = SurahStatus.initial,
+    this.status = SurahListStatus.initial,
     this.statusMsg = '',
     this.surahList = const [],
   });
 
-  final SurahStatus status;
+  final SurahListStatus status;
   final String statusMsg;
   final List<SurahList> surahList;
 
@@ -17,7 +17,7 @@ final class SurahListState extends Equatable {
   List<Object> get props => [status, statusMsg, surahList];
 
   SurahListState copyWith({
-    SurahStatus? status,
+    SurahListStatus? status,
     String? statusMsg,
     List<SurahList>? surahList,
   }) {
