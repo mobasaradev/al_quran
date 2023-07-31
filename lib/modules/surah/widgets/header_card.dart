@@ -28,46 +28,63 @@ class HeaderCard extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            alignment: Alignment.center,
-            width: context.mediaQueryData.size.width * .1,
-            height: context.mediaQueryData.size.height * .05,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AssetPaths.iconLeading),
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            child: AutoSizeText(
-              surahList.number.toString(),
-              style: context.themeData.textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.w600,
-              ),
+          Expanded(
+            flex: 1,
+            child: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Icons.arrow_back_ios),
+              color: AppColors.tertiaryText,
             ),
           ),
-          const SizedBox(height: 5),
-          AutoSizeText(
-            surahList.name.short,
-            style: context.themeData.textTheme.titleSmall?.copyWith(
-              color: AppColors.primaryHeroAreaText,
-            ),
-          ),
-          AutoSizeText(
-            surahList.name.transliteration.en,
-            style: context.themeData.textTheme.bodyMedium?.copyWith(
-              color: AppColors.primaryHeroAreaText,
-            ),
-          ),
-          const SizedBox(height: 7),
-          AutoSizeText(
-            ' ${surahList.numberOfVerses} Verse - ${surahList.revelation.arab} ',
-            style: context.themeData.textTheme.bodySmall?.copyWith(
-              fontWeight: FontWeight.w400,
-              color: AppColors.secondaryHeroAreaText,
+          Expanded(
+            flex: 10,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  width: context.mediaQueryData.size.width * .1,
+                  height: context.mediaQueryData.size.height * .05,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AssetPaths.iconLeading),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+                  child: AutoSizeText(
+                    surahList.number.toString(),
+                    style: context.themeData.textTheme.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                AutoSizeText(
+                  surahList.name.short,
+                  style: context.themeData.textTheme.titleSmall?.copyWith(
+                    color: AppColors.primaryHeroAreaText,
+                  ),
+                ),
+                AutoSizeText(
+                  surahList.name.transliteration.en,
+                  style: context.themeData.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.primaryHeroAreaText,
+                  ),
+                ),
+                const SizedBox(height: 7),
+                AutoSizeText(
+                  ' ${surahList.numberOfVerses} Verse - ${surahList.revelation.arab} ',
+                  style: context.themeData.textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.secondaryHeroAreaText,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

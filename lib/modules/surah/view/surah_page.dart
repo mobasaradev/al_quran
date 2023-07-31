@@ -15,17 +15,11 @@ class SurahPage extends StatelessWidget {
     final audioPlayer = AudioPlayer();
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: CustomAppBar(
-        title: 'Surah name en',
-        automaticallyImplyLeading: true,
-        icon: Icons.arrow_back_ios,
-        onPressed: () => Navigator.pop(context),
-      ).toPreferredSize(),
       body: CustomContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 15),
+            const SizedBox(height: 25),
             BlocBuilder<SurahListBloc, SurahListState>(
               builder: (context, state) {
                 return HeaderCard(
@@ -52,7 +46,6 @@ class SurahPage extends StatelessWidget {
                         audioPlayer: audioPlayer,
                         surahDetails: surahDetail,
                       );
-                      
                     },
                   );
                 },
