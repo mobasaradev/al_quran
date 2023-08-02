@@ -7,7 +7,7 @@ export 'surah/bloc/surah_bloc.dart';
 export 'surah/surah.dart';
 export 'surah/view/surah_page.dart';
 export 'surah/widgets/search_bar.dart';
-export 'surah/widgets/surah_list.dart';
+export 'surah/widgets/surah_list_view.dart';
 export 'surah_details/bloc/surah_details_bloc.dart';
 export 'surah_details/surah_details.dart';
 export 'surah_details/view/surah_details_page.dart';

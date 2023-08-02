@@ -7,9 +7,9 @@ import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
 class CustomListOfSurah extends StatelessWidget {
-  const CustomListOfSurah({super.key, required this.surahList});
+  const CustomListOfSurah({super.key, required this.surah});
 
-  final Surah surahList;
+  final Surah surah;
 
   @override
   Widget build(BuildContext context) {
@@ -35,27 +35,27 @@ class CustomListOfSurah extends StatelessWidget {
             ),
           ),
           child: AutoSizeText(
-            surahList.number.toString(),
+            surah.number.toString(),
             style: context.themeData.textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
         title: AutoSizeText(
-          surahList.name.transliteration.en,
+          surah.name.transliteration.en,
           style: context.themeData.textTheme.bodyMedium?.copyWith(
             fontWeight: FontWeight.w600,
             color: AppColors.secondaryText,
           ),
         ),
         subtitle: AutoSizeText(
-          "Verse - ${surahList.numberOfVerses}, ${surahList.revelation.arab}",
+          "Verse - ${surah.numberOfVerses}, ${surah.revelation.arab}",
           style: context.themeData.textTheme.bodySmall?.copyWith(
             color: AppColors.primaryText,
           ),
         ),
         trailing: AutoSizeText(
-          surahList.name.short,
+          surah.name.short,
           style: context.themeData.textTheme.headlineSmall?.copyWith(
             fontWeight: FontWeight.w500,
             color: AppColors.tertiaryText,
@@ -64,12 +64,12 @@ class CustomListOfSurah extends StatelessWidget {
         onTap: () {
           context
               .read<SurahDetailsBloc>()
-              .add(SurahDetailsEventFetched(surahList.number));
+              .add(SurahDetailsEventFetched(surah.number));
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => SurahPage(
-                surahList: surahList,
+                surah: surah,
               ),
             ),
           );

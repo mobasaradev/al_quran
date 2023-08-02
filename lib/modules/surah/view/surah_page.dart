@@ -35,7 +35,7 @@ class QuranPage extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final surah = state.surah[index];
                       return CustomListOfSurah(
-                        surahList: surah,
+                        surah: surah,
                       );
                     },
                   );

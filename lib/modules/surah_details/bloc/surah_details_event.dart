@@ -9,6 +9,5 @@ abstract class SurahDetailsEvent extends Equatable {
 
 class SurahDetailsEventFetched extends SurahDetailsEvent {
   const SurahDetailsEventFetched(this.id);
-
   final int id;
 }

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextTheme {
   AppTextTheme._();
-  static final _textStyle = GoogleFonts.josefinSans();
+  static final _textStyle = GoogleFonts.poppins();
 
   static TextTheme common = TextTheme(
     headlineLarge: _textStyle.copyWith(
@@ -32,15 +32,15 @@ class AppTextTheme {
     ),
     bodyLarge: _textStyle.copyWith(
       fontSize: 18,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w500,
     ),
     bodyMedium: _textStyle.copyWith(
       fontSize: 16,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w500,
     ),
     bodySmall: _textStyle.copyWith(
       fontSize: 14,
-      fontWeight: FontWeight.normal,
+      fontWeight: FontWeight.w500,
     ),
   );
 }

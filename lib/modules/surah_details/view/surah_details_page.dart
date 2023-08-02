@@ -6,9 +6,9 @@ import 'package:quran/theme/theme.dart';
 import 'package:quran/utils/utils.dart';
 
 class SurahPage extends StatelessWidget {
-  const SurahPage({super.key, required this.surahList});
+  const SurahPage({super.key, required this.surah});
 
-  final Surah surahList;
+  final Surah surah;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SurahPage extends StatelessWidget {
                 return HeaderCard(
                   imageSource: AssetPaths.iconLeading,
                   backgroundImage: AssetPaths.featuredBg1,
-                  surahList: surahList,
+                  surah: surah,
                 );
               },
             ),

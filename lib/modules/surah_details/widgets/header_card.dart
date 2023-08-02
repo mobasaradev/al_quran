@@ -9,9 +9,9 @@ class HeaderCard extends StatelessWidget {
     super.key,
     required this.imageSource,
     required this.backgroundImage,
-    required this.surahList,
+    required this.surah,
   });
-  final Surah surahList;
+  final Surah surah;
   final String imageSource;
   final String backgroundImage;
 
@@ -57,7 +57,7 @@ class HeaderCard extends StatelessWidget {
                     ),
                   ),
                   child: AutoSizeText(
-                    surahList.number.toString(),
+                    surah.number.toString(),
                     style: context.themeData.textTheme.bodyMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -65,20 +65,20 @@ class HeaderCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 5),
                 AutoSizeText(
-                  surahList.name.short,
+                  surah.name.short,
                   style: context.themeData.textTheme.titleSmall?.copyWith(
                     color: AppColors.primaryHeroAreaText,
                   ),
                 ),
                 AutoSizeText(
-                  surahList.name.transliteration.en,
+                  surah.name.transliteration.en,
                   style: context.themeData.textTheme.bodyMedium?.copyWith(
                     color: AppColors.primaryHeroAreaText,
                   ),
                 ),
                 const SizedBox(height: 7),
                 AutoSizeText(
-                  ' ${surahList.numberOfVerses} Verse - ${surahList.revelation.arab} ',
+                  ' ${surah.numberOfVerses} Verse - ${surah.revelation.arab} ',
                   style: context.themeData.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.w400,
                     color: AppColors.secondaryHeroAreaText,
