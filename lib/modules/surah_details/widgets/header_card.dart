@@ -11,7 +11,7 @@ class HeaderCard extends StatelessWidget {
     required this.backgroundImage,
     required this.surahList,
   });
-  final SurahList surahList;
+  final Surah surahList;
   final String imageSource;
   final String backgroundImage;
 

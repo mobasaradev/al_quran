@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
@@ -8,7 +9,7 @@ import 'package:quran/utils/utils.dart';
 class CustomListOfSurah extends StatelessWidget {
   const CustomListOfSurah({super.key, required this.surahList});
 
-  final SurahList surahList;
+  final Surah surahList;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class CustomListOfSurah extends StatelessWidget {
           ),
         ),
         subtitle: AutoSizeText(
-          "Verse - ${surahList.number}, ${surahList.revelation.arab}",
+          "Verse - ${surahList.numberOfVerses}, ${surahList.revelation.arab}",
           style: context.themeData.textTheme.bodySmall?.copyWith(
             color: AppColors.primaryText,
           ),
@@ -60,12 +61,19 @@ class CustomListOfSurah extends StatelessWidget {
             color: AppColors.tertiaryText,
           ),
         ),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const SurahPage(),
-          ),
-        ),
+        onTap: () {
+          context
+              .read<SurahDetailsBloc>()
+              .add(SurahDetailsEventFetched(surahList.number));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SurahPage(
+                surahList: surahList,
+              ),
+            ),
+          );
+        },
       ),
     );
   }

@@ -1,17 +1,17 @@
-class SurahList {
-  final int number;
-  final int numberOfVerses;
-  final Name name;
-  final Revelation revelation;
-
-  SurahList({
+class Surah {
+  Surah({
     required this.number,
     required this.numberOfVerses,
     required this.name,
     required this.revelation,
   });
 
-  factory SurahList.fromJson(Map<String, dynamic> json) => SurahList(
+  final int number;
+  final int numberOfVerses;
+  final Name name;
+  final Revelation revelation;
+
+  factory Surah.fromJson(Map<String, dynamic> json) => Surah(
         number: json["number"],
         numberOfVerses: json["numberOfVerses"],
         name: Name.fromJson(json["name"]),
@@ -28,13 +28,13 @@ class SurahList {
 
 //  name object
 class Name {
+  final String short;
+  final Transliteration transliteration;
+
   Name({
     required this.short,
     required this.transliteration,
   });
-
-  final String short;
-  final Transliteration transliteration;
 
   factory Name.fromJson(Map<String, dynamic> json) => Name(
         short: json["short"],
@@ -49,9 +49,9 @@ class Name {
 
 // object of name key
 class Transliteration {
-  Transliteration({required this.en});
-
   final String en;
+
+  Transliteration({required this.en});
 
   factory Transliteration.fromJson(Map<String, dynamic> json) =>
       Transliteration(en: json["en"]);
@@ -60,9 +60,9 @@ class Transliteration {
 }
 
 class Revelation {
-  Revelation({required this.arab});
-
   final String arab;
+
+  Revelation({required this.arab});
 
   factory Revelation.fromJson(Map<String, dynamic> json) =>
       Revelation(arab: json["arab"]);

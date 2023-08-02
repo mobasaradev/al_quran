@@ -6,20 +6,20 @@ part 'surah_details_event.dart';
 part 'surah_details_state.dart';
 
 class SurahDetailsBloc extends Bloc<SurahDetailsEvent, SurahDetailsState> {
-  SurahDetailsBloc({required SurahRepositoryImpl surahDetailsRepoImpl})
+  SurahDetailsBloc( {required SurahRepositoryImpl surahDetailsRepoImpl})
       : _surahDetailsRepoImpl = surahDetailsRepoImpl,
         super(const SurahDetailsState()) {
-    on<SurahDetailsEvent>(_onDetailsFetched);
+    on<SurahDetailsEventFetched>(_onDetailsFetched);
   }
   final SurahRepositoryImpl _surahDetailsRepoImpl;
-
+  
   void _onDetailsFetched(
-    SurahDetailsEvent event,
+    SurahDetailsEventFetched event,
     Emitter<SurahDetailsState> emit,
   ) async {
     emit(state.copyWith(status: SurahDetailsStatus.loading));
 
-    final surahDetails = await _surahDetailsRepoImpl.getSurahDetails();
+    final surahDetails = await _surahDetailsRepoImpl.getSurahDetails(event.id);
     if (surahDetails.isEmpty) {
       emit(
         state.copyWith(

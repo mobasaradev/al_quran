@@ -1,5 +1,4 @@
-export 'bloc/surah_details_bloc.dart';
+export 'bloc/surah_bloc.dart';
 export 'view/surah_page.dart';
-export 'widgets/audio_controller_bar.dart';
-export 'widgets/header_card.dart';
-export 'widgets/surah_card.dart';
+export 'widgets/search_bar.dart';
+export 'widgets/surah_list.dart';

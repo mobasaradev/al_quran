@@ -23,17 +23,13 @@ class SurahDetails {
 }
 
 class Audio {
-  Audio({required this.secondary});
+  Audio({required this.primary});
+  final String primary;
 
-  final List<String> secondary;
+  factory Audio.fromJson(Map<String, dynamic> json) =>
+      Audio(primary: json["primary"]);
 
-  factory Audio.fromJson(Map<String, dynamic> json) => Audio(
-        secondary: List<String>.from(json["secondary"].map((x) => x)),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "secondary": List<dynamic>.from(secondary.map((x) => x)),
-      };
+  Map<String, dynamic> toJson() => {"primary": primary};
 }
 
 class Text {

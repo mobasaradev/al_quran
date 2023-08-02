@@ -7,4 +7,8 @@ abstract class SurahDetailsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class SurahDetailsEventFetched extends SurahDetailsEvent {}
+class SurahDetailsEventFetched extends SurahDetailsEvent {
+  const SurahDetailsEventFetched(this.id);
+
+  final int id;
+}

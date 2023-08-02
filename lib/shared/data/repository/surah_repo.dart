@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:http/http.dart';
 import 'package:quran/shared/shared.dart';
 
@@ -8,15 +9,15 @@ class SurahRepositoryImpl implements Repository {
   final NetworkUtil networkUtil;
 
   @override
-  Future<List<SurahList>> getSurahList() async {
+  Future<List<Surah>> getSurah() async {
     try {
-      Response response = await networkUtil.get(UrlConstants.surahList);
+      Response response = await networkUtil.get(UrlConstants.surah);
       if (response.statusCode == HttpStatus.ok) {
-        final surahListJson = jsonDecode(response.body)['data'];
-        final surahList = [
-          for (final surah in surahListJson) SurahList.fromJson(surah),
+        final surahJson = jsonDecode(response.body)['data'];
+        final surah = [
+          for (final sura in surahJson) Surah.fromJson(sura),
         ];
-        return surahList;
+        return surah;
       } else {
         throw Exception('API call not successful : ${response.statusCode}');
       }
@@ -26,16 +27,16 @@ class SurahRepositoryImpl implements Repository {
   }
 
   @override
-  Future<List<SurahDetails>> getSurahDetails() async {
+  Future<List<SurahDetails>> getSurahDetails(int id) async {
     try {
-      Response response = await networkUtil.get(UrlConstants.surahDetails);
+      Response response = await networkUtil.get("${UrlConstants.surah}/$id");
       if (response.statusCode == HttpStatus.ok) {
         final surahDetailsJson = jsonDecode(response.body)['data']['verses'];
-        final surahDetail = [
+        final surahDetails = [
           for (final surahDetail in surahDetailsJson)
             SurahDetails.fromJson(surahDetail),
         ];
-        return surahDetail;
+        return surahDetails;
       } else {
         throw Exception('API call not successful : ${response.statusCode}');
       }
