@@ -31,27 +31,32 @@ class SurahPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: BlocBuilder<SurahDetailsBloc, SurahDetailsState>(
-                builder: (context, state) {
-                  if (state.status == SurahDetailsStatus.loading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                  return ListView.builder(
-                    itemCount: state.surahDetails.length,
-                    itemBuilder: (context, index) {
-                      final surahDetail = state.surahDetails[index];
-                      return Column(
-                        children: [
-                          SurahCard(
-                            surahDetails: surahDetail,
-                          ),
-                        ],
+              child: BlocProvider<SurahDetailsBloc>(
+                create: (context) => SurahDetailsBloc(
+                  surahDetailsRepoImpl: context.read<SurahRepositoryImpl>(),
+                )..add(SurahDetailsEventFetched(surah.number)),
+                child: BlocBuilder<SurahDetailsBloc, SurahDetailsState>(
+                  builder: (context, state) {
+                    if (state.status == SurahDetailsStatus.loading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
                       );
-                    },
-                  );
-                },
+                    }
+                    return ListView.builder(
+                      itemCount: state.surahDetails.length,
+                      itemBuilder: (context, index) {
+                        final surahDetail = state.surahDetails[index];
+                        return Column(
+                          children: [
+                            SurahCard(
+                              surahDetails: surahDetail,
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
             )
           ],

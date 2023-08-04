@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart';
 import 'package:quran/shared/shared.dart';
 

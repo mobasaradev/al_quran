@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/modules/modules.dart';
 import 'package:quran/shared/shared.dart';
 import 'package:quran/theme/theme.dart';
@@ -62,9 +61,6 @@ class CustomListOfSurah extends StatelessWidget {
           ),
         ),
         onTap: () {
-          context
-              .read<SurahDetailsBloc>()
-              .add(SurahDetailsEventFetched(surah.number));
           Navigator.push(
             context,
             MaterialPageRoute(

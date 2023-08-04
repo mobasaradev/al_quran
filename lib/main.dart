@@ -21,11 +21,11 @@ void main() {
                 SurahEventFetched(),
               ),
           ),
-          BlocProvider<SurahDetailsBloc>(
-            create: (context) => SurahDetailsBloc(
-              surahDetailsRepoImpl: context.read<SurahRepositoryImpl>(),
-            ),
-          ),
+          // BlocProvider<SurahDetailsBloc>(
+          //   create: (context) => SurahDetailsBloc(
+          //     surahDetailsRepoImpl: context.read<SurahRepositoryImpl>(),
+          //   ),
+          // ),
         ],
         child: const App(),
       ),
