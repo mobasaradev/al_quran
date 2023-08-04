@@ -12,7 +12,6 @@ class SurahPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final audioPlayer = AudioPlayer();
     return Scaffold(
       backgroundColor: AppColors.white,
       body: CustomContainer(
@@ -34,7 +33,11 @@ class SurahPage extends StatelessWidget {
               child: BlocProvider<SurahDetailsBloc>(
                 create: (context) => SurahDetailsBloc(
                   surahDetailsRepoImpl: context.read<SurahRepositoryImpl>(),
-                )..add(SurahDetailsEventFetched(surah.number)),
+                )..add(
+                    SurahDetailsEventFetched(
+                      surah.number,
+                    ),
+                  ),
                 child: BlocBuilder<SurahDetailsBloc, SurahDetailsState>(
                   builder: (context, state) {
                     if (state.status == SurahDetailsStatus.loading) {
